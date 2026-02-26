@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 2rem 1rem;
+      color: #1a1a2e;
+    }
+
+    main {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    fieldset {
+      background: #fff;
+      border: 1px solid #dde3ed;
+      border-radius: 10px;
+      padding: 2rem 2rem 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+    }
+
+    legend {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      padding: 0 0.5rem;
+    }
+
+    .field {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+      color: #2d2d44;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 1.5px solid #c5cdd8;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus {
+      outline: none;
+      border-color: #4f7ef8;
+      box-shadow: 0 0 0 3px rgba(79,126,248,.15);
+    }
+
+    .hint {
+      font-size: 0.8rem;
+      color: #5f6b7c;
+      margin-top: 0.35rem;
+    }
+
+    .checkbox-field {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .checkbox-field input[type="checkbox"] {
+      margin-top: 3px;
+      width: 1.1rem;
+      height: 1.1rem;
+      accent-color: #4f7ef8;
+      flex-shrink: 0;
+    }
+
+    .checkbox-field label {
+      font-weight: 400;
+      font-size: 0.9rem;
+      margin: 0;
+      color: #2d2d44;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.75rem;
+      background: #4f7ef8;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    button[type="submit"]:hover {
+      background: #3563d6;
+    }
+
+    button[type="submit"]:focus-visible {
+      outline: 3px solid #4f7ef8;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <form action="#" method="post" role="form" aria-labelledby="form-title" novalidate>
+      <fieldset>
+        <legend id="form-title">Registration</legend>
+
+        <!-- Full Name -->
+        <div class="field">
+          <label for="fullname">Full Name</label>
+          <input
+            type="text"
+            id="fullname"
+            name="fullname"
+            autocomplete="name"
+            required
+            aria-required="true"
+          >
+        </div>
+
+        <!-- Email -->
+        <div class="field">
+          <label for="email">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+            aria-required="true"
+          >
+        </div>
+
+        <!-- Password -->
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="new-password"
+            required
+            aria-required="true"
+            minlength="8"
+            pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}"
+            aria-describedby="password-hint"
+          >
+          <p id="password-hint" class="hint">
+            Must be at least 8 characters and include one uppercase letter and one number.
+          </p>
+        </div>
+
+        <!-- Terms & Conditions -->
+        <div class="checkbox-field">
+          <input
+            type="checkbox"
+            id="terms"
+            name="terms"
+            required
+            aria-required="true"
+            aria-describedby="terms-hint"
+          >
+          <label for="terms">
+            I agree to the <a href="#">Terms &amp; Conditions</a>
+          </label>
+        </div>
+        <p id="terms-hint" class="hint" style="margin-top:-1rem; margin-bottom:1.25rem;">
+          You must accept the terms to create an account.
+        </p>
+
+        <button type="submit">Submit</button>
+
+      </fieldset>
+    </form>
+  </main>
+
+</body>
+</html>
